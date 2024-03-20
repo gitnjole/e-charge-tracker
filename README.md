@@ -2,4 +2,4 @@
 
 # Currently in development
 
-[cards table](public/images/press/cards_table.png)
+![Cards Table Image](public/images/press/cards_table.png)
