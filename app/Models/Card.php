@@ -26,8 +26,8 @@ class Card extends Model
 
     // Relations
 
-    public function stores()
+    public function store()
     {
-        return $this->belongsToMany(Store::class, 'card_store');
+        return $this->belongsTo(Store::class);
     }
 }

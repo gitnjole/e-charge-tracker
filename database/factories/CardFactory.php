@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Carbon\Carbon;
 use App\Models\Card;
+use App\Models\Store;
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -29,7 +30,11 @@ class CardFactory extends Factory
             'pin' => $faker->randomNumber(4, true),
             'amount' => $amount = $faker->randomElement($allowedAmounts),
             'amount_left' => $faker->randomFloat(1, 0.1 * $amount, 0.9 * $amount),
-            'created_at' => Carbon::yesterday(),
+
+            'store_id' => Store::factory(),
+
+            'purchased_at' => $faker->dateTimeBetween('-2 years', '-30 days'),
+            'created_at' => $faker->dateTimeBetween('-30 days', 'now'),
             'activated_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ];

@@ -23,14 +23,20 @@ class DatabaseSeeder extends Seeder
 
         $stores = Store::factory()->count(10)->create();
 
-        $chargingSpots = ChargingSpot::Factory()->count(20)->create();
+        ChargingSpot::Factory()->count(20)->create();
 
         foreach ($cards as $card) {
             $randomStore = $stores->random();
-            $card->stores()->attach($randomStore->id, [
-                'purchase_date' => Carbon::now()->format('Y-m-d H:i:s')
-            ]);
-        }
 
+            $card->store_id = $randomStore->id;
+
+            $startTimestamp = strtotime('-30 days');
+            $endTimestamp = strtotime('now');
+            $randomTimestamp = mt_rand($startTimestamp, $endTimestamp); 
+            
+            $card->purchased_at = date('Y-m-d H:i:s', $randomTimestamp);
+
+            $card->save();
+        }
     }
 }
