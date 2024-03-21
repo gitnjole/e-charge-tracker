@@ -4,16 +4,44 @@
 
 ![View Card Details](public/images/press/view_card.png)
 
-This is a simple project that will allow users of cards to check their current balance as well as previous charges. 
+This Laravel application offers a convenient way to manage and track your charging card information.  Key features include:
 
-The idea is to make a Laravel web application that allows you to check your charging card details, balance and other information either through the web UI or through an API call.
+- Web UI: View your card balance, recent transactions, and other details through a user-friendly web interface.
+- API Access: Retrieve card data programmatically using a simple REST API, enabling integration with other applications.
 
-Currently, the basic steps of web UI have been completed. 
+## Current Functionality
+
+- Web Interface: The foundation of the web UI is in place, providing the ability to view basic card details.
+- API Endpoint: Fetch basic card information
+
+## API Usage
+
+The syntax for an API call is as follows:
+```bash
+?card_slug=SLUG&pin=PIN
+```
+- Replace `SLUG` with the card's unique slug
+- Replace `PIN` with the card's unique PIN
+
+### Example response
+
+```json
+{
+    "id": 15,
+    "slug": "R534I15U963",
+    "amount_left": "23.8",
+    "store": {
+        "name": "Watsica, Schowalter and Brekke",
+        "address": "409 Nathanial Trail Apt. 658"
+    }
+}
+```
 
 Next on the list:
-
-- [ ] Implement API
+- [ ] Implement charging sessions table so users can view all past charging sessions from a given card
+- [ ] Refactor controllers to adhere to restful principles
 - [ ] Optimise database record fetching
+- [x] Implement API requests to fetch card details
 - [x] Set up database
 - [x] Implement web interface
 
