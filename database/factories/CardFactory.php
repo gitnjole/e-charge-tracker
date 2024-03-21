@@ -26,7 +26,7 @@ class CardFactory extends Factory
         $allowedAmounts =  [50, 160, 320];
 
         return [
-            'slug' => $faker->bothify('?###?##?###'),
+            'slug' => strtoupper($faker->bothify('?###?##?###')),
             'pin' => $faker->randomNumber(4, true),
             'amount' => $amount = $faker->randomElement($allowedAmounts),
             'amount_left' => $faker->randomFloat(1, 0.1 * $amount, 0.9 * $amount),
