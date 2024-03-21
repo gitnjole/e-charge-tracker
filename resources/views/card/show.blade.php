@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <div class="row m-0">
-            <div class="col-lg-7 pb-5 pe-lg-5">
+            <div class="col-lg-7 pb-5 pe-lg-5 mr-auto">
                 <div class="row">
                     <div class="col-12 p-5">
                         <img src="images/card.jpg"
@@ -44,27 +44,27 @@
                     <div class="row m-0 bg-light">
                         <div class="col-md-4 col-6 ps-30 pe-0 my-4">
                             <p class="text-muted">Last used at</p>
-                            <p class="h5">{{$card->updated_at->format('d-m-Y H:i')}}</p>
+                            <p class="h5">{{$card->updated_at->format('d.m H:i')}}</p>
                         </div>
                         <div class="col-md-4 col-6  ps-30 my-4">
-                            <p class="text-muted">Duration of charge</p>
-                            <p class="h5 m-0">Manual</p>
+                            <p class="text-muted">Cost of charge</p>
+                            <p class="h5 m-0">26.9</p>
                         </div>
                         <div class="col-md-4 col-6 ps-30 my-4">
-                            <p class="text-muted">Drive unit</p>
+                            <p class="text-muted">Charging spot location</p>
                             <p class="h5 m-0">Front</p>
                         </div>
                         <div class="col-md-4 col-6 ps-30 my-4">
-                            <p class="text-muted">Store location</p>
-                            <p class="h5 m-0">Coupe</p>
-                        </div>
-                        <div class="col-md-4 col-6 ps-30 my-4">
                             <p class="text-muted">Bought at</p>
-                            <p class="h5 m-0">White</p>
+                            <p class="h5 m-0">{{$card->created_at->format('d.m H:i')}}</p>
                         </div>
                         <div class="col-md-4 col-6 ps-30 my-4">
-                            <p class="text-muted">Daily UI</p>
-                            <p class="h5 m-0">#002</p>
+                            <p class="text-muted">Store location</p>
+                            <p class="h5 m-0">Placeholder</p>
+                        </div>
+                        <div class="col-md-4 col-6 ps-30 my-4">
+                            <p class="text-muted">Placeholder</p>
+                            <p class="h5 m-0">Placeholder</p>
                         </div>
                     </div>
                 @endif                 

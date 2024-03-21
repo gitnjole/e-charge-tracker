@@ -2,4 +2,19 @@
 
 # Currently in development
 
+![View Card Details](public/images/press/view_card.png)
+
+This is a simple project that will allow users of cards to check their current balance as well as previous charges. 
+
+The idea is to make a Laravel web application that allows you to check your charging card details, balance and other information either through the web UI or through an API call.
+
+Currently, the basic steps of web UI have been completed. 
+
+Next on the list:
+
+- [ ] Implement API
+- [ ] Optimise database record fetching
+- [x] Set up database
+- [x] Implement web interface
+
 ![Cards Table Image](public/images/press/cards_table.png)
