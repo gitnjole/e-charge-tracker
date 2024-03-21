@@ -60,7 +60,7 @@
                         </div>
                         <div class="col-md-4 col-6 ps-30 my-4">
                             <p class="text-muted">Store location</p>
-                            <p class="h5 m-0">Placeholder</p>
+                            <p class="h5 m-0">{{$card->store->address}}</p>
                         </div>
                         <div class="col-md-4 col-6 ps-30 my-4">
                             <p class="text-muted">Placeholder</p>

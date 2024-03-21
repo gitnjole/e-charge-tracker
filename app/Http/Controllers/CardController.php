@@ -11,14 +11,13 @@ class CardController extends Controller
     {
         $validated = $reqeust->validate([
             'cardSlug' => 'required|max:11',
-            'pin' => 'required'
+            'pin' => 'required|digits:4'
         ]);
 
         $card = Card::where('slug', $validated['cardSlug'])
                     ->where('pin', $validated['pin'])
-                    ->first();
-
-        if (!$card) $card = null;
+                    ->with('store')
+                    ->firstOrFail();
 
         return view('card/show', [
             'card' => $card
