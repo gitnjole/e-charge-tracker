@@ -28,12 +28,12 @@
                                 <div class="d-flex  mb-4">
                                     <span class="">
                                         <label for="cardSlug" class="text-muted">Card number</label> <input class="form-control" type="text"
-                                            id="cardSlug" name="cardSlug" placeholder="h255z82e551"> </span>
+                                            id="cardSlug" name="cardSlug" placeholder="T986Z96H869"> </span>
                                 </div>
                                 <div class="d-flex mb-5">
                                     <span class="me-5">
                                         <label for="pin" class="text-muted">PIN</label> <input class="form-control" type="text" 
-                                            id="pin" name="pin" placeholder="1234"> </span>
+                                            id="pin" name="pin" placeholder="1265"> </span>
                                 </div>
                             </div>
                         </div>
