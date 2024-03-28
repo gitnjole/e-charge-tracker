@@ -21,7 +21,8 @@ class Card extends Model
         'amount_left' => 'decimal:1',
         'created_at' => 'datetime',
         'used_at' => 'datetime',
-        'updated_at' => 'datetime'
+        'updated_at' => 'datetime',
+        'activated_at' => 'datetime'
     ];
 
     // Relations
