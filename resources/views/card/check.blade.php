@@ -1,51 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>E-Charge Card Status</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/landing.css">
-</head>
-<body>
-    <div class="container">
-        <div class="row m-0">
-            <div class="col-lg-7 pb-5 pe-lg-5">
-                <div class="row">
-                    <div class="col-12 p-5">
-                        <img src="images/card.jpg"
-                            alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-5 p-0 ps-lg-4">
-                <div class="col-12 px-0">
-                    <form method="POST" action="/"> <div class="row bg-light m-0">
-                        @csrf
-                            <div class="col-12 px-4 my-4">
-                                <p class="fw-bold">Card details</p>
-                            </div>
-                            <div class="col-12 px-4">
-                                <div class="d-flex  mb-4">
-                                    <span class="">
-                                        <label for="cardSlug" class="text-muted">Card number</label> <input class="form-control" type="text"
-                                            id="cardSlug" name="cardSlug" placeholder="T986Z96H869"> </span>
-                                </div>
-                                <div class="d-flex mb-5">
-                                    <span class="me-5">
-                                        <label for="pin" class="text-muted">PIN</label> <input class="form-control" type="text" 
-                                            id="pin" name="pin" placeholder="1265"> </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row m-0">
-                            <div class="col-12  mb-4 p-0">
-                                <button type="submit" class="btn btn-primary">Check status<span class="fas fa-arrow-right ps-2"></span></button> </div>
-                        </div>
-                    </form>
-                </div>                    
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+@extends('layout')
+
+@section('title', 'Check Card')
+
+@section('styles')
+<style>
+    .crediCard.seeBack {
+        transform: rotateY(-180deg);
+    }
+    #imageCardNumber, #imageCCVNumber {
+      background-color: transparent;
+      border: 1px solid white;
+      color: white;
+    }
+</style>
+@endsection
+
+@section('content')
+<main class="flex min-h-screen flex-col items-center justify-center p-6 lg:p-24">
+    <form action="/card" method="POST" class="bg-white w-full max-w-3xl mx-auto px-4 lg:px-6 py-8 shadow-md rounded-md flex flex-col items-center">
+      @csrf
+      
+      <div class="w-full lg:w-1/2 lg:pl-8 mb-8">
+        @include('components.card-display')
+      </div>
+
+      <div class="mt-4">
+        <button type="submit" class="mt-5 px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            Submit
+        </button>
+      </div>
+    </form>
+</main>
+@endsection
+
+
+@section('scripts')
+<script>
+  const toggleBackCard = () => {
+    if (event.target.tagName === 'INPUT') {
+      return;
+    }
+    
+    const cardEl = document.getElementById("creditCard");
+    if (cardEl.classList.contains("seeBack")) {
+      cardEl.classList.remove("seeBack");
+    } else {
+      cardEl.classList.add("seeBack");
+    }
+  };
+
+  const imageCardNumber = document.getElementById("imageCardNumber");
+
+  inputCardNumber.addEventListener("input", (event) => {
+    const input = event.target.value.replace(/[^A-Za-z0-9]/g, "");
+    imageCardNumber.innerHTML = input;
+  });
+
+  const imageCCVNumber = document.getElementById("imageCCVNumber");
+
+  inputCCVNumber.addEventListener("input", (event) => {
+    const input = event.target.value.replace(/[^A-Za-z0-9]/g, "");
+    imageCCVNumber.innerHTML = input;
+  });
+
+  const inputCardName = document.getElementById("cardName");
+  const imageCardName = document.getElementById("imageCardName");
+
+  inputCardName.addEventListener("input", (event) => {
+    imageCardName.innerHTML = event.target.value;
+  });
+
+  // Prevent toggleBackCard function when focusing on input fields
+  document.getElementById("cardNumber").addEventListener("click", (event) => {
+    event.stopPropagation();
+  });
+
+  document.getElementById("ccvNumber").addEventListener("click", (event) => {
+    event.stopPropagation();
+  });
+</script>
+@endsection
