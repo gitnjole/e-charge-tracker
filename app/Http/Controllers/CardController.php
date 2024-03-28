@@ -7,15 +7,15 @@ use Illuminate\Http\Request;
 
 class CardController extends Controller
 {
-    public function index(Request $reqeust)
+    public function index(Request $request)
     {
-        $validated = $reqeust->validate([
+        $validated = $request->validate([
             'cardSlug' => 'required|max:11',
             'pin' => 'required|digits:4'
         ]);
 
-        $card = Card::where('slug', $validated['cardSlug'])
-                    ->where('pin', $validated['pin'])
+        $card = Card::where('slug', $request['cardSlug'])
+                    ->where('pin', $request['pin'])
                     ->with('store')
                     ->firstOrFail();
 
@@ -23,5 +23,4 @@ class CardController extends Controller
             'card' => $card
         ]);
     }
-
 }
