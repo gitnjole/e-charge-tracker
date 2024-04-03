@@ -16,15 +16,18 @@ This Laravel application offers a convenient way to manage and track your chargi
 
 ## API Usage
 
-The syntax for an API call is as follows:
-```bash
-?card_slug=SLUG&pin=PIN
-```
-- Replace `SLUG` with the card's unique slug
-- Replace `PIN` with the card's unique PIN
+1. Cards
 
-### Example response
+## Get a specific card
 
+- Method: `GET`
+- Route: `/card`
+- Parameters:
+    - `card_slug` (required): Filter by card's unqiue slug
+    - `pin` (required): Filter by card's unqiue PIN
+- Example requests:
+    - `/card?card_slug=R534I15U963&pin=1397`
+- Example Respone:
 ```json
 {
     "id": 15,
@@ -36,6 +39,60 @@ The syntax for an API call is as follows:
     }
 }
 ```
+
+2. Stores
+
+## Get all Stores
+
+- Method: `GET`
+- Route: `/stores`
+- Example Respone:
+```json
+[
+    {
+        "id": 1,
+        "name": "Gutmann LLC",
+        "address": "250 Orpha Freeway",
+        "city": "Osijek"
+    },
+    {
+        "id": 2,
+        "name": "Kirlin Ltd",
+        "address": "52162 Schiller Isle",
+        "city": "Osijek"
+    },
+...
+]
+```
+
+## Get a specific Store
+- Method: `GET`,
+- Route: `/stores`,
+- Parameters:
+    - `id` (optional): Filter by store ID
+    - `city` (optional): FIlter by store location
+- Example requests:
+    - `/stores?id=2` (Get store with ID 2)
+    - `/stores?city=Zagreb` (Get all stores within Zagreb)
+    - `/stores?city=xxxx` (Error message "Data not found." with a server response `406`)
+- Example response:
+```json
+[
+    {
+        "id": 4,
+        "name": "Koepp-Kunze",
+        "address": "491 Durgan Walk",
+        "city": "Rijeka"
+    },
+    {
+        "id": 12,
+        "name": "Kunze Inc",
+        "address": "6860 Block Meadows",
+        "city": "Rijeka"
+    }
+]
+```
+
 
 Next on the list:
 - [ ] Implement charging sessions table so users can view all past charging sessions from a given card
