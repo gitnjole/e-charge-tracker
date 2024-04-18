@@ -7,20 +7,29 @@ use Illuminate\Http\Request;
 
 class CardController extends Controller
 {
-    public function index(Request $request)
+    public function find(Request $request)
     {
         $validated = $request->validate([
-            'cardSlug' => 'required|max:11',
+            'slug' => 'required|max:11',
             'pin' => 'required|digits:4'
         ]);
 
-        $card = Card::where('slug', $request['cardSlug'])
-                    ->where('pin', $request['pin'])
+        $card = Card::where('slug', $validated['slug'])
+                    ->where('pin', $validated['pin'])
                     ->with('store')
-                    ->firstOrFail();
+                    ->first();
 
-        return view('card/show', [
-            'card' => $card
-        ]);
+        if ($card) {
+            return redirect()->route('cards.show', [
+                'card' => $card
+            ]);
+        } else {
+            return redirect()->back()->withErrors('Card not found');
+        }
+    }
+    
+    public function show(Card $card)
+    {
+        return view('cards/show', compact('card'));
     }
 }
