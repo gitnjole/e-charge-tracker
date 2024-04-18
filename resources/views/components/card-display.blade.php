@@ -53,7 +53,7 @@
         style="backface-visibility: hidden; transform: rotateY(180deg)"
       >
         <img
-        src="images/card-background.jpg"
+        src="{{ asset('images/card-background.jpg') }}"
           class="relative object-cover w-full h-full rounded-xl"
         />
         <div class="w-full absolute top-8">
