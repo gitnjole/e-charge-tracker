@@ -33,7 +33,7 @@
           </div>
           <div class="pt-1">
             <p class="font-light">Card Number</p>
-            <input type="text" id="imageCardNumber" name="cardSlug" class="font-medium tracking-more-wider h-6" maxlength="16" />
+            <input type="text" id="imageCardNumber" name="slug" class="font-medium tracking-more-wider h-6" maxlength="16" />
           </div>
           <div class="pt-6 flex justify-between">
             <div>
