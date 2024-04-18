@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Check Card')
+@section('title', 'Card details')
 
 @section('content')
 <main class="flex min-h-screen flex-col items-center justify-between p-6 lg:p-24">
@@ -8,9 +8,9 @@
       <div class="w-full">
         @include('components.card-details')
       </div>
-      <button class="mt-1 px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+      <a href="/cards/search" class="mt-1 px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
         Check another card
-    </button>
+      </a>
     </div>
 </main>
 @endsection
