@@ -10,7 +10,7 @@
         style="backface-visibility: hidden"
       >
         <img
-          src="images/card-background.jpg"
+          src="{{ asset('images/card-background.jpg') }}"
           class="relative object-cover w-full h-full rounded-xl"
         />
         <div class="w-full px-8 absolute top-8">

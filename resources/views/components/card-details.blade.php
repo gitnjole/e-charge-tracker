@@ -2,7 +2,7 @@
 <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl m-5">
   <div class="md:flex">
       <div class="md:flex-shrink-0">
-      <img class="h-48 w-full object-cover md:w-48" src="images/card-background.jpg" alt="Event image">
+      <img class="h-48 w-full object-cover md:w-48" src="{{ asset('images/card-background.jpg') }}" alt="Event image">
       </div>
       <div class="p-8">
       <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">E-charge card information</div>
