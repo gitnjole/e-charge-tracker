@@ -7,7 +7,7 @@
   <title>@yield('title')</title>
   @yield('styles')
 </head>
-<body style="background-color: #C1E1C1">
+<body class="bg-gradient-to-b from-[#101212] to-[#08201D]">
     @yield('content')
     @yield('scripts')
 </body>
