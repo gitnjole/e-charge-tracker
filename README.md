@@ -1,4 +1,5 @@
 <p align="center">
+<img width="120px" src="public/images/press/php.png"/>
 <img width="80px" src="public/images/press/laravel.png"/> 
 <img width="80px" src="public/images/press/mariadb.png"/> 
 <img width="80px" src="public/images/press/vue.png"/> 
